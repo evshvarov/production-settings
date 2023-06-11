@@ -3,7 +3,7 @@
   <Document name="production-settings.ZPM">
     <Module>
       <Name>production-settings</Name>
-      <Version>1.0.2</Version>
+      <Version>1.0.3</Version>
       <Description>Helper module to ease Interoperability production settings</Description>
       <Packaging>module</Packaging>
       <SourcesRoot>src</SourcesRoot>
