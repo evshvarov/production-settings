@@ -14,8 +14,8 @@ WORKDIR /home/irisowner/dev
 ##USER ${ISC_PACKAGE_MGRUSER}
 
 ARG TESTS=0
-ARG MODULE="dc-sample"
-ARG NAMESPACE="IRISAPP"
+ARG MODULE="production-settings"
+ARG NAMESPACE="USER"
 
 ## Embedded Python environment
 ENV IRISUSERNAME "_SYSTEM"
