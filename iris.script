@@ -2,20 +2,16 @@
     zn "%SYS"
     Do ##class(Security.Users).UnExpireUserPasswords("*")
 
-    ; enabling callin for Embedded Python
-    do ##class(Security.Services).Get("%Service_CallIn",.prop)
-    set prop("Enabled")=1
-    set prop("AutheEnabled")=48
-    do ##class(Security.Services).Modify("%Service_CallIn",.prop)
-
-    // create IRISAPP namespace
-    do $SYSTEM.OBJ.Load("/home/irisowner/dev/Installer.cls", "ck")
-    set sc = ##class(App.Installer).setup()
-
     // comment the line below for production images
     zpm "install passwordless"
-    // load all the code of the project as a ZPM package
-    zn "IRISAPP"
 
-    zpm "load /home/irisowner/dev/ -v":1:1
+
+    // load all the code of the project as a ZPM package
+    zn "USER"
+
+    zpm "load /home/irisowner/dev/ -v":1
+
+    ;Load a test production
+    do $System.OBJ.LoadDir("/home/irisowner/dev/src/Test","ck",,1)
+
     halt

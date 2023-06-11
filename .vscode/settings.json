@@ -5,8 +5,8 @@
         "iris.script": "objectscript"
       },
     "objectscript.conn" :{
-      "active": false,
-      "ns": "IRISAPP",
+      "active": true,
+      "ns": "USER",
       "username": "_SYSTEM",
       "password": "SYS",
       "docker-compose": {
@@ -14,7 +14,7 @@
         "internalPort": 52773
       },
       "links": {
-        "UnitTest Portal": "${serverUrl}/csp/sys/%25UnitTest.Portal.Home.cls?$NAMESPACE=IRISAPP"
+        "UnitTest Portal": "${serverUrl}/csp/sys/%25UnitTest.Portal.Home.cls?$NAMESPACE=USER"
       }
     }
 

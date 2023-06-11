@@ -26,7 +26,7 @@ docker exec iris iris session iris -U IRISAPP
 
 ## import objectscirpt code
 
-do $System.OBJ.LoadDir("/home/irisowner/dev/src","ck",,1)
+do $System.OBJ.LoadDir("/home/irisowner/dev/src/Test","ck",,1)
 ## map iris key from Mac home directory to IRIS in container
 - ~/iris.key:/usr/irissys/mgr/iris.key
 
@@ -115,3 +115,10 @@ docker run --rm --name iris-sql -d -p 9092:52773 containers.intersystems.com/int
 
 
 docker run --rm --name iris-ce -d -p 9092:52773 containers.intersystems.com/intersystems/iris-community:2023.1.0.229.0
+
+w ##class(shvarov.i14y.Settings).SetValue("Test.shvarov.i14y.TestProduction","InboundService","Port",8888)
+
+w ##class(shvarov.i14y.Settings).GetValue("Test.shvarov.i14y.TestProduction","InboundService","Port")
+
+## testing line
+zpm "test production-settings -v -only"
