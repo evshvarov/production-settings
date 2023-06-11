@@ -13,7 +13,6 @@ ClassMethod SetValue(ProductionName As %String, ItemName As %String, Setting As 
 
     for i=1:1:production.Items.Count() {
     s item=production.Items.GetAt(i)
-    #; w !,item.Name
     if item.Name=ItemName {
         set itemExists=1
         for s=1:1:item.Settings.Count() {
@@ -22,13 +21,11 @@ ClassMethod SetValue(ProductionName As %String, ItemName As %String, Setting As 
             if sett.Name=Setting
                 {
                 set sett.Value=Value
-                Quit
+                set st=production.%Save()
+                return st
                 }
             }
         }
-
-    set st=production.%Save()
-    return st
     }
     return:$g(itemExists) $$$ERROR($$$GeneralError,"The setting "_Setting_" for the item "_ItemName_" is not found. Try to introduce it into the production")
     return $$$ERROR($$$GeneralError,"The item "_ItemName_" in Production "_ProductionName_" is not found")
