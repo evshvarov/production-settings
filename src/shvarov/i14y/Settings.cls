@@ -33,6 +33,7 @@ ClassMethod SetValue(ProductionName As %String, ItemName As %String, Setting As 
             if (Setting = sName) {
                 if (sTarget = "Core") {
                     // skip, core settings like Enabled shouldn't be modified from here
+                    return $$$ERROR($$$GeneralError,"Core settings shouldn't be modified here")
                 } else {
                     set ecs = ##class(Ens.Config.Setting).%New()
                     set ecs.Name = sName
